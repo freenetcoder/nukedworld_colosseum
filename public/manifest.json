@@ -1,0 +1,35 @@
+{
+  "name": "Nuked World - The Only World War That Pumps",
+  "short_name": "Nuked World",
+  "description": "Choose a nation. Build Rockets. Form alliances. Win with strategy, diplomacy, or pure digital destruction. Better to nuke pixels than people.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0F172A",
+  "theme_color": "#F97316",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/nuclear-logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["games", "entertainment", "strategy"],
+  "lang": "en-US"
+}

@@ -1,0 +1,41 @@
+<svg
+  width="16"
+  height="16"
+  viewBox="0 0 100 100"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <!-- Nuclear symbol background -->
+  <circle
+    cx="50"
+    cy="50"
+    r="45"
+    fill="#1F2937"
+    stroke="#F97316"
+    stroke-width="6"
+  />
+  
+  <!-- Nuclear trefoil symbol -->
+  <g transform="translate(50,50)">
+    <!-- Center circle -->
+    <circle cx="0" cy="0" r="12" fill="#F97316" />
+    
+    <!-- Three radiation sectors -->
+    <g>
+      <path
+        d="M 0,-35 A 35,35 0 0,1 30.31,-17.5 L 15.16,-8.75 A 17.5,17.5 0 0,0 0,-17.5 Z"
+        fill="#F97316"
+      />
+      <path
+        d="M 30.31,17.5 A 35,35 0 0,1 -30.31,17.5 L -15.16,8.75 A 17.5,17.5 0 0,0 15.16,8.75 Z"
+        fill="#F97316"
+      />
+      <path
+        d="M -30.31,-17.5 A 35,35 0 0,1 0,-35 L 0,-17.5 A 17.5,17.5 0 0,0 -15.16,-8.75 Z"
+        fill="#F97316"
+      />
+    </g>
+    
+    <!-- Inner glow effect -->
+    <circle cx="0" cy="0" r="8" fill="#FB923C" />
+  </g>
+</svg>

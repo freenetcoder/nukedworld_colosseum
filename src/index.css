@@ -1,0 +1,1174 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import 'leaflet/dist/leaflet.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Enhanced base styles with military theme - OPTIMIZED FOR PERFORMANCE */
+html, body {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  min-height: 100vh;
+  font-family: 'Rajdhani', 'Orbitron', monospace, system-ui, -apple-system, sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+}
+
+/* Military-themed typography */
+.font-military {
+  font-family: 'Orbitron', monospace;
+}
+
+.font-tactical {
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/* PERFORMANCE OPTIMIZED ANIMATIONS - Reduced complexity and frequency */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    opacity: 1;
+    box-shadow: 0 0 5px rgba(249, 115, 22, 0.2); /* Reduced shadow */
+  }
+  50% { 
+    opacity: 0.9; /* Less opacity change */
+    box-shadow: 0 0 8px rgba(249, 115, 22, 0.3); /* Reduced shadow */
+  }
+}
+
+@keyframes radar-sweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes tactical-slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* PERFORMANCE: Slower animations to reduce CPU usage */
+.animate-spin-slow { animation: spin-slow 8s linear infinite; } /* Much slower */
+.animate-pulse-glow { animation: pulse-glow 6s ease-in-out infinite; } /* Much slower */
+.animate-radar-sweep { animation: radar-sweep 12s linear infinite; } /* Much slower */
+.animate-tactical-slide-in { animation: tactical-slide-in 0.5s ease-out; }
+
+/* Enhanced wallet adapter button styles */
+.wallet-adapter-button {
+  transition: all 0.3s ease !important; /* Slower transition */
+  font-family: 'Rajdhani', sans-serif !important;
+  font-weight: 700 !important;
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%) !important;
+  border: 2px solid #fb923c !important;
+  box-shadow: 0 1px 4px rgba(249, 115, 22, 0.1) !important; /* Much reduced shadow */
+}
+
+.wallet-adapter-button:not([disabled]):hover {
+  transform: scale(1.01) !important; /* Much reduced scale */
+  box-shadow: 0 2px 8px rgba(249, 115, 22, 0.2) !important; /* Much reduced shadow */
+  border-color: #fdba74 !important;
+}
+
+.wallet-adapter-button:not([disabled]):focus {
+  box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.2) !important; /* Much reduced shadow */
+}
+
+/* PERFORMANCE: Thinner scrollbar */
+::-webkit-scrollbar {
+  width: 6px; /* Thinner */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #1e293b;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  border-radius: 3px;
+  border: 1px solid #1e293b;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #f87171 0%, #ef4444 100%);
+}
+
+/* PERFORMANCE: Simplified focus styles */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.3); /* Much reduced shadow */
+}
+
+/* PERFORMANCE: Reduced backdrop blur */
+.backdrop-blur-military {
+  backdrop-filter: blur(4px) saturate(120%); /* Much reduced blur */
+  -webkit-backdrop-filter: blur(4px) saturate(120%);
+}
+
+/* PERFORMANCE: Simplified military grid pattern */
+.military-grid {
+  background-image: 
+    linear-gradient(rgba(239, 68, 68, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(239, 68, 68, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px; /* Larger grid for better performance */
+}
+
+/* PERFORMANCE: Optimized map styles */
+.react-transform-wrapper {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 8px; /* Reduced radius */
+  overflow: hidden;
+}
+
+.react-transform-component {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* PERFORMANCE: Much simplified country markers */
+.country-marker {
+  transition: transform 0.3s ease; /* Simplified transition */
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1)); /* Much reduced shadow */
+}
+
+.country-marker:hover {
+  transform: scale(1.05); /* Much reduced scale */
+}
+
+.country-marker.nuclear {
+  animation: pulse-glow 8s ease-in-out infinite; /* Much slower */
+}
+
+.country-marker.conquered {
+  filter: grayscale(50%) drop-shadow(0 1px 2px rgba(239, 68, 68, 0.2)); /* Much reduced */
+}
+
+/* PERFORMANCE: Simplified loading states */
+.loading-skeleton {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+  background-size: 200% 100%;
+  animation: loading-shimmer 3s infinite; /* Slower */
+}
+
+@keyframes loading-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* PERFORMANCE: Much simplified card hover effects */
+.card-military {
+  transition: transform 0.3s ease; /* Simplified transition */
+  background: rgba(30, 41, 59, 0.8); /* Simplified background */
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  backdrop-filter: blur(4px); /* Much reduced blur */
+}
+
+.card-military:hover {
+  transform: translateY(-1px); /* Much reduced transform */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Much reduced shadow */
+}
+
+/* PERFORMANCE: Simplified button styles */
+.btn-military {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  transition: transform 0.3s ease; /* Simplified transition */
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  border: 1px solid #f87171; /* Thinner border */
+  box-shadow: 0 1px 3px rgba(239, 68, 68, 0.1); /* Much reduced shadow */
+}
+
+.btn-military:hover {
+  transform: translateY(-1px); /* Much reduced transform */
+  box-shadow: 0 2px 6px rgba(239, 68, 68, 0.2); /* Much reduced shadow */
+}
+
+.btn-military:active {
+  transform: translateY(0); /* Simplified */
+  box-shadow: 0 1px 3px rgba(239, 68, 68, 0.1); /* Much reduced shadow */
+}
+
+.btn-military:disabled {
+  background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+  border-color: #9ca3af;
+  box-shadow: none;
+  transform: none;
+  cursor: not-allowed;
+}
+
+/* PERFORMANCE: Simplified input styles */
+.input-military {
+  font-family: 'Rajdhani', sans-serif;
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(107, 114, 128, 0.5); /* Thinner border */
+  backdrop-filter: blur(2px); /* Much reduced blur */
+  transition: border-color 0.3s ease; /* Simplified transition */
+}
+
+.input-military:focus {
+  border-color: #f97316;
+  box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.1); /* Much reduced shadow */
+  background: rgba(30, 41, 59, 0.9);
+}
+
+/* PERFORMANCE: Simplified progress bars */
+.progress-military {
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(107, 114, 128, 0.3);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Remove the expensive shine animation for performance */
+.progress-military::before {
+  display: none; /* Disable shine animation */
+}
+
+/* Mobile optimizations - PERFORMANCE FOCUSED */
+@media (max-width: 768px) {
+  .react-transform-wrapper {
+    touch-action: pan-x pan-y pinch-zoom;
+  }
+  
+  .map-controls button {
+    min-width: 32px; /* Even smaller buttons for mobile */
+    min-height: 32px;
+    font-size: 10px;
+    padding: 6px;
+  }
+  
+  .btn-military {
+    min-height: 36px;
+    font-size: 11px;
+    padding: 8px 12px;
+  }
+  
+  .input-military {
+    font-size: 16px; /* Prevents zoom on iOS */
+    min-height: 36px;
+    padding: 8px 12px;
+  }
+  
+  /* Mobile-specific map styles */
+  .leaflet-container {
+    font-size: 12px;
+  }
+  
+  .leaflet-control-container {
+    display: none !important;
+  }
+  
+  /* Improve touch targets on mobile */
+  .touch-manipulation {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Mobile country markers */
+  .custom-country-marker {
+    transform: scale(0.9); /* Slightly smaller on mobile */
+  }
+  
+  /* Mobile popup adjustments */
+  .country-info-popup {
+    max-width: calc(100vw - 16px);
+    font-size: 11px;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .map-controls button {
+    min-width: 36px;
+    min-height: 36px;
+    font-size: 11px;
+  }
+  
+  .custom-country-marker {
+    transform: scale(0.95);
+  }
+}
+
+/* Large desktop optimizations */
+@media (min-width: 1920px) {
+  .map-controls button {
+    min-width: 48px;
+    min-height: 48px;
+    font-size: 14px;
+  }
+  
+  .custom-country-marker {
+    transform: scale(1.1);
+  }
+}
+
+.battle-arena-layout {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+  gap: 0;
+}
+
+.battle-left-panel {
+  grid-column: 1;
+  grid-row: 2;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(8px);
+  border-right: 1px solid rgba(239, 68, 68, 0.3);
+  transition: width 0.3s ease;
+  overflow: hidden;
+}
+
+.battle-map-container {
+  grid-column: 2;
+  grid-row: 2;
+  position: relative;
+  overflow: hidden;
+}
+
+.battle-right-panel {
+  grid-column: 3;
+  grid-row: 2;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(8px);
+  border-left: 1px solid rgba(249, 115, 22, 0.3);
+  width: 320px;
+  overflow: hidden;
+}
+
+.battle-chat-panel {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(239, 68, 68, 0.3);
+  transition: height 0.3s ease;
+  overflow: hidden;
+}
+
+.battle-header {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(239, 68, 68, 0.3);
+  z-index: 50;
+}
+
+/* Battle Map Status Overlays */
+.battle-map-overlay {
+  position: absolute;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.battle-map-overlay.top-left {
+  top: 16px;
+  left: 16px;
+}
+
+.battle-map-overlay.bottom-center {
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 300px;
+}
+
+.battle-map-overlay.bottom-right {
+  bottom: 16px;
+  right: 16px;
+  max-width: 280px;
+}
+
+/* Battle Turn Panel Styles */
+.battle-turn-panel {
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(239, 68, 68, 0.1) 100%);
+  border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.battle-turn-panel .turn-header {
+  background: linear-gradient(90deg, rgba(249, 115, 22, 0.2) 0%, rgba(239, 68, 68, 0.2) 100%);
+  border-bottom: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+/* Battle Chat Improvements */
+.battle-chat-collapsed {
+  height: 48px;
+}
+
+.battle-chat-expanded {
+  height: 256px;
+}
+
+.battle-chat-header {
+  background: rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid rgba(239, 68, 68, 0.3);
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.battle-chat-content {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Battle HUD Improvements */
+.battle-hud-panel {
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 8px;
+  backdrop-filter: blur(8px);
+}
+
+.battle-participant-card {
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(107, 114, 128, 0.3);
+  border-radius: 8px;
+  padding: 12px;
+  transition: all 0.2s ease;
+}
+
+.battle-participant-card.current-player {
+  border-color: rgba(34, 197, 94, 0.5);
+  background: rgba(34, 197, 94, 0.1);
+}
+
+.battle-participant-card.current-turn {
+  border-color: rgba(59, 130, 246, 0.5);
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.battle-participant-card.eliminated {
+  border-color: rgba(107, 114, 128, 0.3);
+  background: rgba(107, 114, 128, 0.1);
+  opacity: 0.5;
+}
+
+/* Mobile Battle Optimizations */
+@media (max-width: 1024px) {
+  .battle-arena-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto auto;
+  }
+  
+  .battle-left-panel,
+  .battle-right-panel {
+    display: none;
+  }
+  
+  .battle-map-container {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  
+  .battle-chat-panel {
+    grid-column: 1;
+    grid-row: 3;
+    height: auto;
+    max-height: 200px;
+  }
+  
+  .battle-mobile-actions {
+    grid-column: 1;
+    grid-row: 4;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(239, 68, 68, 0.3);
+    padding: 12px;
+  }
+}
+
+/* Battle Animation Improvements */
+.battle-missile-marker {
+  background: transparent !important;
+  
+  /* Mobile action bar spacing */
+  .battle-map-container {
+    padding-bottom: 60px; /* Space for mobile action bar */
+  }
+  
+  /* Ensure mobile action bar doesn't overlap */
+  .battle-chat-panel {
+    margin-bottom: 60px;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .battle-chat-panel {
+    height: 320px;
+    min-height: 320px;
+  }
+  
+  .battle-chat-panel .battle-chat-expanded {
+    height: 272px;
+  }
+}
+
+/* Large desktop optimizations */
+@media (min-width: 1024px) {
+  .battle-chat-panel {
+    height: auto;
+    min-height: auto;
+    margin-bottom: 0;
+  }
+  
+  .battle-chat-expanded {
+    height: 288px !important; /* Optimized height for desktop */
+  }
+  
+  .battle-map-container {
+    padding-bottom: 0;
+  
+  border: none !important;
+  z-index: 3000;
+  }
+}
+
+/* Mobile battle chat adjustments for action bar */
+@media (max-width: 1023px) {
+  .battle-chat-panel {
+    /* Add bottom margin when action bar is present */
+    margin-bottom: 64px; /* Height of mobile action bar */
+  }
+  
+  /* Ensure chat input is always visible */
+  .battle-chat-content {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
+
+/* Safe area support for mobile devices */
+.safe-area-inset-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.battle-explosion-marker {
+  background: transparent !important;
+  border: none !important;
+  z-index: 3000;
+}
+
+@keyframes battle-pulse {
+  0%, 100% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+.battle-target-mode .custom-country-marker {
+  cursor: crosshair !important;
+}
+
+.battle-target-mode .custom-country-marker:hover {
+  animation: battle-pulse 1s infinite;
+}
+
+/* Battle Status Indicators */
+.battle-status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.battle-status-indicator.waiting {
+  background: rgba(34, 197, 94, 0.2);
+  color: #22C55E;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.battle-status-indicator.in-progress {
+  background: rgba(239, 68, 68, 0.2);
+  color: #EF4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.battle-status-indicator.completed {
+  background: rgba(59, 130, 246, 0.2);
+  color: #3B82F6;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+/* Battle Timer Styles */
+.battle-timer {
+  font-family: 'Orbitron', monospace;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.battle-timer.warning {
+  color: #F97316;
+  animation: pulse 2s infinite;
+}
+
+.battle-timer.critical {
+  color: #EF4444;
+  animation: pulse 1s infinite;
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .custom-country-marker img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* PERFORMANCE: Force hardware acceleration only where needed */
+.animate-spin,
+.animate-pulse,
+.animate-bounce,
+.animate-spin-slow,
+.animate-pulse-glow,
+.animate-radar-sweep {
+  will-change: transform;
+  transform: translateZ(0); /* Force hardware acceleration */
+}
+
+/* PERFORMANCE: Disable animations on low-end devices */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .country-marker,
+  .react-transform-component,
+  .animate-spin,
+  .animate-pulse,
+  .animate-bounce,
+  .animate-spin-slow,
+  .animate-pulse-glow,
+  .animate-radar-sweep,
+  .animate-tactical-slide-in {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .hover\:scale-105:hover,
+  .hover\:scale-110:hover {
+    transform: none !important;
+  }
+  
+  .card-military:hover,
+  .btn-military:hover {
+    transform: none !important;
+  }
+}
+
+/* PERFORMANCE: Simplified flag rendering */
+img[alt*="flag"] {
+  image-rendering: auto; /* Let browser decide */
+  object-fit: cover;
+  border-radius: 1px; /* Smaller radius */
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); /* Much reduced shadow */
+}
+
+/* PERFORMANCE: Much reduced glow effects */
+.glow-red {
+  box-shadow: 0 0 4px rgba(239, 68, 68, 0.2); /* Much reduced glow */
+}
+
+.glow-orange {
+  box-shadow: 0 0 4px rgba(249, 115, 22, 0.2); /* Much reduced glow */
+}
+
+.glow-green {
+  box-shadow: 0 0 4px rgba(34, 197, 94, 0.2); /* Much reduced glow */
+}
+
+.glow-blue {
+  box-shadow: 0 0 4px rgba(59, 130, 246, 0.2); /* Much reduced glow */
+}
+
+/* PERFORMANCE: Simplified military HUD elements */
+.hud-element {
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(249, 115, 22, 0.5);
+  backdrop-filter: blur(2px); /* Much reduced blur */
+  font-family: 'Orbitron', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Remove expensive HUD scan animation */
+.hud-element::before {
+  display: none; /* Disable scan animation */
+}
+
+/* PERFORMANCE: Simplified military rank badges */
+.rank-badge {
+  background: rgba(0, 0, 0, 0.8); /* Simplified background */
+  border: 1px solid;
+  backdrop-filter: blur(2px); /* Much reduced blur */
+  font-family: 'Orbitron', monospace;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Remove expensive rank shine animation */
+.rank-badge::after {
+  display: none; /* Disable shine animation */
+}
+
+/* Player country highlighting styles */
+@keyframes playerCountryPulse {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6), 0 0 30px rgba(255, 215, 0, 0.3);
+  }
+  50% { 
+    transform: scale(1.15);
+    opacity: 0.9;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.4);
+  }
+}
+
+/* Enhanced pulse animation for selected/target countries */
+@keyframes pulse {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% { 
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+/* Player country marker special styling */
+.player-country-marker {
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8)) !important;
+}
+
+.player-country-marker img {
+  filter: brightness(1.2) saturate(1.3) !important;
+}
+
+/* Leaflet Map Styles */
+.leaflet-map {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.custom-country-marker {
+  background: transparent !important;
+  border: none !important;
+  z-index: 3000 !important;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+/* FIXED: Ensure country markers are always clickable */
+.custom-country-marker * {
+  pointer-events: auto !important;
+  z-index: 3000 !important;
+}
+
+/* Hover effects for desktop */
+@media (hover: hover) {
+  .custom-country-marker:hover {
+    transform: scale(1.1);
+    z-index: 3001 !important;
+  }
+}
+
+/* Touch feedback for mobile */
+@media (hover: none) {
+  .custom-country-marker:active {
+    transform: scale(0.95);
+  }
+}
+
+.leaflet-marker-icon {
+  z-index: 3000 !important;
+}
+
+.leaflet-marker-pane {
+  z-index: 3000 !important;
+}
+
+/* FIXED: Prevent map from intercepting clicks on markers */
+.leaflet-container {
+  outline: none;
+  background: transparent;
+}
+
+.leaflet-container a {
+  color: inherit;
+}
+
+.leaflet-container a.leaflet-active {
+  outline: none;
+}
+
+.leaflet-control-container {
+  display: none !important;
+}
+
+/* Improve map performance on mobile */
+.leaflet-tile {
+  image-rendering: auto;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Better zoom controls for touch devices */
+.leaflet-touch .leaflet-control-layers,
+.leaflet-touch .leaflet-bar {
+  border: none;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
+}
+
+/* Map Layer Switcher Styles */
+.map-layer-switcher {
+  position: relative;
+}
+
+.map-layer-button {
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  padding: 6px 8px;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  color: white;
+  transition: all 0.2s ease;
+  touch-action: manipulation;
+}
+
+.map-layer-button:hover {
+  background: rgba(59, 130, 246, 0.2);
+}
+
+@media (max-width: 768px) {
+  .map-layer-button {
+    padding: 4px 6px;
+    font-size: 12px;
+  }
+}
+
+.map-layer-dropdown {
+  position: absolute;
+  top: 100%;
+  margin-top: 4px;
+  left: 0;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  min-width: 140px;
+  z-index: 1001;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .map-layer-dropdown {
+    min-width: 120px;
+    margin-top: 2px;
+  }
+}
+
+.map-layer-dropdown-header {
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  font-family: monospace;
+  border-bottom: 1px solid #4b5563;
+  padding-bottom: 6px;
+}
+
+@media (min-width: 769px) {
+  .map-layer-dropdown-header {
+    font-size: 12px;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+  }
+}
+
+.map-layer-option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: monospace;
+  transition: all 0.2s ease;
+  color: #d1d5db;
+  touch-action: manipulation;
+}
+
+@media (min-width: 769px) {
+  .map-layer-option {
+    gap: 12px;
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+
+.map-layer-option:hover {
+  background: rgba(59, 130, 246, 0.2);
+  color: white;
+}
+
+.map-layer-option.active {
+  background: #2563eb;
+  color: white;
+}
+
+.map-layer-option-icon {
+  font-size: 14px;
+}
+
+@media (min-width: 769px) {
+  .map-layer-option-icon {
+    font-size: 18px;
+  }
+}
+
+.map-layer-option-indicator {
+  margin-left: auto;
+  width: 6px;
+  height: 6px;
+  background: #22c55e;
+  border-radius: 50%;
+}
+
+@media (min-width: 769px) {
+  .map-layer-option-indicator {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+/* Map Controls Styles */
+.map-controls-container {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+@media (min-width: 769px) {
+  .map-controls-container {
+    top: 16px;
+    left: 16px;
+    gap: 8px;
+  }
+}
+
+.map-controls-panel {
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  padding: 4px;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 769px) {
+  .map-controls-panel {
+    padding: 8px;
+  }
+}
+
+.map-controls-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+@media (min-width: 769px) {
+  .map-controls-buttons {
+    gap: 4px;
+  }
+}
+
+.map-control-button {
+  padding: 6px;
+  color: white;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: manipulation;
+  min-width: 28px;
+  min-height: 28px;
+}
+
+@media (min-width: 769px) {
+  .map-control-button {
+    padding: 8px;
+    min-width: 32px;
+    min-height: 32px;
+  }
+}
+
+.map-control-button:hover {
+  transform: scale(1.1);
+}
+
+/* Touch feedback for mobile */
+@media (hover: none) {
+  .map-control-button:active {
+    transform: scale(0.95);
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.map-control-button.zoom-in:hover {
+  color: #22c55e;
+  background: rgba(34, 197, 94, 0.2);
+}
+
+.map-control-button.zoom-out:hover {
+  color: #3b82f6;
+  background: rgba(59, 130, 246, 0.2);
+}
+
+.map-control-button.reset:hover {
+  color: #eab308;
+  background: rgba(234, 179, 8, 0.2);
+}
+
+.map-control-button.fullscreen:hover {
+  color: #a855f7;
+  background: rgba(168, 85, 247, 0.2);
+}
+
+.map-control-button .icon {
+  transition: transform 0.3s ease;
+}
+
+.map-control-button.reset:hover .icon {
+  transform: rotate(180deg);
+}
+
+.map-control-button.zoom-in:hover .icon,
+.map-control-button.fullscreen:hover .icon {
+  transform: scale(1.1);
+}
+
+.map-control-button.zoom-out:hover .icon {
+  transform: scale(0.9);
+}
+
+/* Target Mode Indicator */
+.target-mode-indicator {
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  padding: 8px;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+@media (min-width: 769px) {
+  .target-mode-indicator {
+    padding: 12px;
+  }
+}
+
+.target-mode-text {
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+@media (min-width: 769px) {
+  .target-mode-text {
+    font-size: 14px;
+    gap: 8px;
+  }
+}
+
+.target-crosshair {
+  color: #ef4444;
+  animation: pulse 2s infinite;
+}
+/* PERFORMANCE: GPU acceleration for better performance */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* PERFORMANCE: Optimize transforms */
+.transform {
+  transform: translateZ(0);
+}
+
+/* PERFORMANCE: Disable expensive effects on low-end devices */
+@media (max-width: 1024px) and (max-height: 768px) {
+  .backdrop-blur-military,
+  .backdrop-blur-md,
+  .backdrop-blur-sm {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(30, 41, 59, 0.95) !important; /* Solid background instead */
+  }
+  
+  .animate-spin-slow,
+  .animate-pulse-glow,
+  .animate-radar-sweep {
+    animation: none !important; /* Disable all animations */
+  }
+  
+  .card-military:hover,
+  .btn-military:hover,
+  .country-marker:hover {
+    transform: none !important; /* Disable hover effects */
+    box-shadow: none !important;
+  }
+}

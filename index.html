@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="https://www.nukedworld.com/nuclear-logo.svg" />
+    <link rel="apple-touch-icon" href="https://www.nukedworld.com/apple-touch-icon.png" />
+    <link rel="shortcut icon" href="https://www.nukedworld.com/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nuked World - The Only World War That Pumps</title>
+    <meta name="description" content="Choose a nation. Build rockets. Form alliances. Win with strategy, diplomacy, or pure digital destruction. Better to nuke pixels than people." />
+    <meta name="keywords" content="Nuked World, $NUKED, blockchain game, Solana, crypto game, strategy game, military simulation" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://nukedworld.com" />
+    <meta property="og:title" content="Nuked World - The Only World War That Pumps" />
+    <meta property="og:description" content="Choose a nation. Build rockets. Form alliances. Win with strategy, diplomacy, or pure digital destruction." />
+    <meta property="og:image" content="https://www.nukedworld.com/logox.png" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://nukedworld.com" />
+    <meta name="twitter:title" content="Nuked World - The Only World War That Pumps" />
+    <meta name="twitter:description" content="Better to nuke pixels than people. Get $NUKED or get conquered." />
+    <meta name="twitter:image" content="https://www.nukedworld.com/banner1.png" />
+    
+    <!-- Additional favicon sizes -->
+    <link rel="icon" type="image/svg+xml" sizes="any" href="https://www.nukedworld.com/nuclear-logo.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.nukedworld.com/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="https://www.nukedworld.com/favicon-16x16.png" />
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="https://www.nukedworld.com/manifest.json" />
+    
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#F97316" />
+    <meta name="msapplication-TileColor" content="#0F172A" />
+    <meta name="msapplication-TileImage" content="https://www.nukedworld.com/nuclear-logo.svg" />
+    
+    <!-- Preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Military/Gaming optimized font -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Performance optimizations -->
+    <link rel="dns-prefetch" href="//flagcdn.com">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    
+    <!-- Security headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <!-- <meta http-equiv="X-Frame-Options" content="DENY"> -->
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    
+    <!-- Mobile app capabilities -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Nuked World">
+    
+    <!-- Splash screen for iOS -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    
+    <style>
+      /* Critical CSS for loading screen */
+      body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+        font-family: 'Rajdhani', 'Orbitron', monospace, system-ui, -apple-system, sans-serif;
+        overflow-x: hidden;
+      }
+      
+      /* Loading animation */
+      .loading-pulse {
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+      
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: .5; }
+      }
+      
+      /* Prevent flash of unstyled content */
+      #root {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <!-- Fallback loading screen for slow connections -->
+      <div style="
+        position: fixed;
+        inset: 0;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-family: 'Orbitron', monospace;
+        z-index: 9999;
+      " id="fallback-loader">
+        <div style="text-align: center;">
+          <div style="
+            width: 60px;
+            height: 60px;
+            border: 3px solid #374151;
+            border-top: 3px solid #f97316;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+          "></div>
+          <div style="font-size: 18px; font-weight: bold; color: #f97316;">
+            NUKED WORLD
+          </div>
+          <div style="font-size: 12px; color: #9ca3af; margin-top: 8px;">
+            Loading Military Systems...
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <style>
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+    
+    <script>
+      // Remove fallback loader when React app loads
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          const fallbackLoader = document.getElementById('fallback-loader');
+          if (fallbackLoader) {
+            fallbackLoader.style.opacity = '0';
+            fallbackLoader.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+              fallbackLoader.remove();
+            }, 500);
+          }
+        }, 1000);
+      });
+      
+
+    </script>
+    
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
